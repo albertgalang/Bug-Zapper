@@ -1,0 +1,41 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour, IEntity
+{
+    [SerializeField]
+    private Vector3 position = Vector3.zero;
+    [SerializeField]
+    private Vector3 velocity = Vector3.zero;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float desiredSpeed;
+    [SerializeField]
+    private float acceleration;
+    [SerializeField]
+    private float minSpeed;
+    [SerializeField]
+    private float maxSpeed;
+
+    public Vector3 Position { get => position; set => position = value; }
+    public Vector3 Velocity { get => velocity; set => velocity = value; }
+    public float Speed { get => speed; set => speed = value; }
+    public float DesiredSpeed { get => desiredSpeed; set => desiredSpeed = value; }
+    public float Acceleration { get => acceleration; set => acceleration = value; }
+    public float MinSpeed { get => minSpeed; set => minSpeed = value; }
+    public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
