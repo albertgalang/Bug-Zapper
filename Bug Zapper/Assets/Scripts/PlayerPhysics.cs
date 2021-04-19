@@ -6,59 +6,34 @@ public class PlayerPhysics : MonoBehaviour
 {
     [SerializeField]
     private Player entity;
-    private Vector3 playerVelocity;
+    private Vector3 playerPosition;
     // Start is called before the first frame update
     void Start()
     {
-        playerVelocity = entity.Velocity;
+        playerPosition = entity.Position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (entity.DesiredSpeed > entity.Speed)
-        {
-            entity.Speed += entity.Acceleration * Time.deltaTime;
-        }
-        else if (entity.DesiredSpeed < entity.Speed)
-        {
-
-            entity.Speed -= entity.Acceleration * Time.deltaTime;
-        }
-        entity.Speed = entity.Speed.Clamp(entity.MinSpeed, entity.MaxSpeed);
-
-
-        // heading?
-
-
-        // position
-        entity.Position += entity.Velocity * Time.deltaTime;
+        entity.Position = playerPosition;
         transform.position = entity.Position;
     }
 
     public void MoveForward()
     {
-        playerVelocity.z = Vector3.forward.z * entity.Speed;
-        entity.Velocity = playerVelocity;
+        playerPosition.z += entity.Speed;
     }
     public void MoveBackward()
     {
-        playerVelocity.z = Vector3.back.z * entity.Speed;
-        entity.Velocity = playerVelocity;
+        playerPosition.z -= entity.Speed;
     }
     public void MoveLeft()
     {
-        playerVelocity.x = Vector3.left.x * entity.Speed;
-        entity.Velocity = playerVelocity;
+        playerPosition.x -= entity.Speed;
     }
     public void MoveRight()
     {
-        playerVelocity.x = Vector3.right.x * entity.Speed;
-        entity.Velocity = playerVelocity;
-    }
-    public void StopMove()
-    {
-        playerVelocity = Vector3.zero;
-        entity.Velocity = Vector3.zero;
+        playerPosition.x += entity.Speed;
     }
 }
