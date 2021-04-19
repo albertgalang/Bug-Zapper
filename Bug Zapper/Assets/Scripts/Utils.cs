@@ -28,6 +28,11 @@ public static class Utils
             return diff + 360;
         return diff;
     }
+    
+    public static float AngleBetween(Vector3 a, Vector3 b)
+    {
+        return Mathf.Atan2(b.z - a.z, b.x - a.x) * Mathf.Rad2Deg;
+    }
 
     public static float Clamp360Degrees(this float angleDegrees)
     {
