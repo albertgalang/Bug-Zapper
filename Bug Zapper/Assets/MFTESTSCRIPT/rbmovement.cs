@@ -17,18 +17,21 @@ public class rbmovement : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));    
     }
+    */
 
     private void FixedUpdate()
     {
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveCharacter(movement);
     }
 
-    void moveCharacter(Vector2 direction)
+    void moveCharacter(Vector3 direction)
     {
-        rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
+        rb.AddForce(direction * speed * Time.deltaTime, ForceMode.Impulse);
     }
 }
