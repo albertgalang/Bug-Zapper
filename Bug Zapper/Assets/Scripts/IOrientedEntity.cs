@@ -12,6 +12,14 @@ public interface IOrientedEntity
     [SerializeField]
     float DesiredSpeed { get; set; }
 
+    //[SerializeField]
+    //float Heading { get; set; }
+    //[SerializeField]
+    //float DesiredHeading { get; set; }
+
+    [SerializeField]
+    float TurnRate { get; set; }
+
 
     [SerializeField]
     float Acceleration { get; set; }

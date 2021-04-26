@@ -50,5 +50,38 @@ public class PlayerPhysics : MonoBehaviour
         playerQuarternion.z = 0f;
         this.entity.gameObject.transform.rotation = playerQuarternion;
     }
+
+    public void MovementHeading()
+    {
+        if (ControlMgr.inst.InputX < 0)
+        {
+            var euler = -Vector3.Angle(new Vector3(0f,0f,1f), new Vector3(ControlMgr.inst.InputX, 0f, ControlMgr.inst.InputZ));
+            var myEulerVect = entity.transform.eulerAngles;
+            myEulerVect.y = euler;
+            entity.transform.eulerAngles = myEulerVect;
+        }
+        else if (ControlMgr.inst.InputX > 0)
+        {
+            var euler = Vector3.Angle(new Vector3(0f,0f,1f), new Vector3(ControlMgr.inst.InputX, 0f, ControlMgr.inst.InputZ));
+            var myEulerVect = entity.transform.eulerAngles;
+            myEulerVect.y = euler;
+            entity.transform.eulerAngles = myEulerVect;
+
+        }
+        else if (ControlMgr.inst.InputZ < 0)
+        {
+            var euler = Vector3.Angle(new Vector3(0f,0f,1f), new Vector3(ControlMgr.inst.InputX, 0f, ControlMgr.inst.InputZ));
+            var myEulerVect = entity.transform.eulerAngles;
+            myEulerVect.y = euler;
+            entity.transform.eulerAngles = myEulerVect;
+        }
+        else if (ControlMgr.inst.InputZ > 0)
+        {
+            var euler = -Vector3.Angle(new Vector3(0f,0f,1f), new Vector3(ControlMgr.inst.InputX, 0f, ControlMgr.inst.InputZ));
+            var myEulerVect = entity.transform.eulerAngles;
+            myEulerVect.y = euler;
+            entity.transform.eulerAngles = myEulerVect;
+        }
+    }
     
 }
