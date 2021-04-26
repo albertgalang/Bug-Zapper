@@ -12,6 +12,9 @@ public class EntityMgr : MonoBehaviour
     public Player Player { get => this.player; }
     //public List<Enemy> Enemies { get => this.enemies; }
 
+    //list of bug enemies
+    public List<BugEntity> entities;
+
     public static EntityMgr inst;
     private void Awake()
     {

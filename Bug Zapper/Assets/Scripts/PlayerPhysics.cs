@@ -38,6 +38,7 @@ public class PlayerPhysics : MonoBehaviour
     {
         playerPosition.x += entity.Speed;
     }
+   
     public void SetHeading(Vector3 pos)
     {
         var cameraCompensate = Quaternion.Euler(Camera.main.gameObject.gameObject.transform.rotation.eulerAngles);
@@ -49,4 +50,5 @@ public class PlayerPhysics : MonoBehaviour
         playerQuarternion.z = 0f;
         this.entity.gameObject.transform.rotation = playerQuarternion;
     }
+    
 }

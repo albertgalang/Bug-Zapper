@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
 
 //    public int bugCount = 0;
     private float gameTime;
-    public float timebetweenSpawn = 5;
+    public float timebetweenSpawn = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +32,8 @@ public class Spawner : MonoBehaviour
     public void spawnBug()
     {
         GameObject bug = Instantiate(bugPrefab);
-        bug.transform.position = new Vector3(0, 0, 0);
-    //    bug.name = "Bug" + bugCount;
+        bug.transform.position = new Vector3(Random.Range(-495.0f, -490.0f), 0, Random.Range(-495.0f, 495.0f));
+        //    bug.name = "Bug" + bugCount;
     }
 
     public void buildEnv(GameObject rockPrefab)
@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
         while (rockCount < 25)
         {
             GameObject rock = Instantiate(rockPrefab);
-            rock.transform.position = new Vector3(Random.Range(-500.0f, 500.0f), 0, Random.Range(-500.0f, 500.0f));
+            rock.transform.position = new Vector3(Random.Range(-495.0f, 495.0f), 0, Random.Range(-495.0f, 495.0f));
             rockCount++;
         }
     }
