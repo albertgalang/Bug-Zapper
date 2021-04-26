@@ -22,15 +22,6 @@ public class Intercept : Command
 
     public override void Tick()
     {
-        //diff = EntityToIntercept.Position - this.entity.Position;
-        //RelativeVelocity = EntityToIntercept.Velocity - this.entity.Velocity;
-        //TPrime = Mathf.Abs(diff.sqrMagnitude) / Mathf.Abs(RelativeVelocity.sqrMagnitude);
-        //InterceptPosition = EntityToIntercept.Position + EntityToIntercept.Velocity * TPrime;
-
-        //Vector3 path = (InterceptPosition - this.entity.Position);
-        //this.heading = Mathf.Atan2(path.x, path.z);
-        //ControlMgr.inst.SetHeading(this.entity, heading * Mathf.Rad2Deg);
-
         if (this.IsDone())
             this.entity.DesiredSpeed = 0;
         else
@@ -42,7 +33,6 @@ public class Intercept : Command
     public float doneDistanceSqr = 1500;
     public override bool IsDone()
     {
-        // diff = this.entity.Position - InterceptPosition;
         diff = EntityMgr.inst.Player.gameObject.transform.position - this.entity.gameObject.transform.position;
         return (diff.sqrMagnitude < doneDistanceSqr);
     }
