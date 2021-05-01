@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitAI : MonoBehaviour
 {
     public Queue<Command> commands = new Queue<Command>();
+    // public List<Command> CommandList = new List<Command>(); // just for test
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class UnitAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // CommandList = commands.ToList();
         if (commands.Count > 0)
         {
             var command = commands.Peek();

@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour, IEntity, IOrientedEntity
     private float minSpeed;
     [SerializeField]
     private float maxSpeed;
+    //[SerializeField]
+    //private float heading;
+    //[SerializeField]
+    //private float desiredHeading;
     [SerializeField]
     private float turnRate;
     [SerializeField]
@@ -32,6 +36,8 @@ public class Enemy : MonoBehaviour, IEntity, IOrientedEntity
     public float Acceleration { get => acceleration; set => acceleration = value; }
     public float MinSpeed { get => minSpeed; set => minSpeed = value; }
     public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
+    //public float Heading { get => heading; set => heading = value; }
+    //public float DesiredHeading { get => desiredHeading; set => desiredHeading = value; }
     public float TurnRate { get => turnRate; set => turnRate = value; }
     public bool OnMap { get => onMap; set => onMap = value; }
     public bool LockVelocity { get => lockVelocity; set => lockVelocity = value; }
