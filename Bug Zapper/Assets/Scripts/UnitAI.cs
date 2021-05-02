@@ -5,7 +5,6 @@ using UnityEngine;
 public class UnitAI : MonoBehaviour
 {
     public Queue<Command> commands = new Queue<Command>();
-    // public List<Command> CommandList = new List<Command>(); // just for test
 
     // Start is called before the first frame update
     void Start()
@@ -46,22 +45,23 @@ public class UnitAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (this.gameObject.tag == "Bug" && collision.gameObject.tag == "Bug")
+        Debug.Log("OnCollision bug");
+        if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "EnemyEntity")
         {
             Debug.Log("OnCollision bug");
             this.GetComponent<Enemy>().DesiredSpeed = 10f;
             this.GetComponent<Enemy>().Speed = 10f;
-            this.GetComponent<Enemy>().isStuck = true;
+            // this.GetComponent<Enemy>().isStuck = true;
             this.GetComponent<EnemyPhysics>().MoveBack();
         }
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if (this.gameObject.tag == "Bug" && collision.gameObject.tag == "Bug")
-        {
-            this.GetComponent<Enemy>().isStuck = true;
-        }
+        //if (this.gameObject.tag == "Bug" && collision.gameObject.tag == "Bug")
+        //{
+        //    this.GetComponent<Enemy>().isStuck = true;
+        //}
     }
 
     private void OnCollisionExit(Collision collision)

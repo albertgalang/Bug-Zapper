@@ -548,7 +548,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 161290724200649139, guid: 299a792493a141041b55aeb4f23a6c9c,
+      objectReference: {fileID: 8500329801586328475, guid: 02c3d931fa8369c48a36a11cb388a116,
         type: 3}
     - target: {fileID: 54506428275603981, guid: ed7565a2e83c2944aade00fd70f53a02,
         type: 3}
@@ -1491,6 +1491,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369464, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8edc0b14efdadc043bb29c12358dff6d, type: 3}

@@ -20,7 +20,7 @@ public class EntityMgr : MonoBehaviour
     //public List<Enemy> Enemies { get => this.enemies; }
 
     //list of bug enemies
-    // public List<Enemy> entities;
+    //public List<Enemy> entities;
 
     public static EntityMgr inst;
     private void Awake()
@@ -33,19 +33,12 @@ public class EntityMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
-        topBotBorders.Add(8f);
-        topBotBorders.Add(-2f);
-        leftRightBorders.Add(-8f);
-        leftRightBorders.Add(10f);
-=======
         // NOTE: Bounds spawn needs rework
         topBotBorders.Add(325f);
         topBotBorders.Add(-80f);
         leftRightBorders.Add(-190f);
         leftRightBorders.Add(190f);
 
->>>>>>> 3222618 (enemy to enemy collision)
         StartCoroutine(SpawnEnemy());
     }
 
@@ -59,17 +52,14 @@ public class EntityMgr : MonoBehaviour
     {
         while (enemies.Count < maxEnemiesOnMap)
         {
-            var posSpawn = new Vector3(leftRightBorders[Random.Range(0,1)], 0f, topBotBorders[Random.Range(0,1)]);
+            var posSpawn = new Vector3(leftRightBorders[Random.Range(0,2)], 0f, topBotBorders[Random.Range(0,2)]);
             var parent = GameObject.FindGameObjectWithTag("EnemyEntity");
             var newObj = Instantiate(enemyPrefab[0], posSpawn, Quaternion.identity, parent.transform);
-<<<<<<< HEAD
-=======
             newObj.GetComponent<Enemy>().Position = posSpawn;
 
             // testing intercept command at spawn
             AIMgr.inst.HandleIntercept(player, newObj.GetComponent<Enemy>());
 
->>>>>>> 3222618 (enemy to enemy collision)
             enemies.Add(newObj.GetComponent<Enemy>());
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
