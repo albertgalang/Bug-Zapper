@@ -99,4 +99,14 @@ public class ControlMgr : MonoBehaviour
     //    ent.DesiredHeading = heading;
     //    ent.DesiredHeading = Utils.Clamp360Degrees(ent.DesiredHeading);
     //}
+
+    public void KeepDistance(Enemy ent, Enemy other)
+    {
+
+    }
+
+    //public void Moveback(GameObject ent)
+    //{
+
+    //}
 }

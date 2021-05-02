@@ -84,4 +84,11 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
     
+    //public void GetCurrentHeading()
+    //{
+    //    var velocity = new Vector3(ControlMgr.inst.InputX, 0f, ControlMgr.inst.InputZ);
+    //    velocity *= this.GetComponent<Player>().Speed;
+
+        
+    //}
 }

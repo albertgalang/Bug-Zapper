@@ -28,6 +28,10 @@ public class Enemy : MonoBehaviour, IEntity, IOrientedEntity
     private bool onMap;
     [SerializeField]
     private bool lockVelocity;
+    [SerializeField]
+    public bool onTarget = false;
+    [SerializeField]
+    public bool isStuck = false;
 
     public Vector3 Position { get => position; set => position = value; }
     public Vector3 Velocity { get => velocity; set => velocity = value; }

@@ -19,6 +19,7 @@ public class AIMgr : MonoBehaviour
     //public int layerMask;
     void Update()
     {
+<<<<<<< HEAD
         //if (Input.GetMouseButtonDown(1))
         //{
         //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out Hit, float.MaxValue, layerMask))
@@ -66,6 +67,13 @@ public class AIMgr : MonoBehaviour
             if (enemy.GetComponentInParent<UnitAI>().commands.Count == 0)
                 HandleIntercept(EntityMgr.inst.Player, enemy);
         }
+=======
+        //foreach (var enemy in EntityMgr.inst.enemies)
+        //{
+        //    if (enemy.GetComponentInParent<UnitAI>().commands.Count == 0)
+        //        HandleIntercept(EntityMgr.inst.Player, enemy);
+        //}
+>>>>>>> 3222618 (enemy to enemy collision)
     }
 
     //private void HandleTeleport(Vector3 point)
@@ -110,7 +118,7 @@ public class AIMgr : MonoBehaviour
     //    }
     //}
 
-    private void HandleIntercept(Player entToIntercept, Enemy enemy)
+    public void HandleIntercept(Player entToIntercept, Enemy enemy)
     {
         Intercept intercept = new Intercept(enemy, entToIntercept);
         UnitAI uai = enemy.GetComponent<UnitAI>();

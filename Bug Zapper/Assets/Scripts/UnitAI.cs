@@ -21,8 +21,13 @@ public class UnitAI : MonoBehaviour
         {
             var command = commands.Peek();
             command.Tick();
-            Debug.Log($"is done: {command.IsDone()}");
+            // Debug.Log($"is done: {command.IsDone()}");
             if (command.IsDone()) commands.Dequeue();
+        }
+
+        if (this.gameObject.tag == "Bug")
+        {
+
         }
     }
 
@@ -37,6 +42,34 @@ public class UnitAI : MonoBehaviour
     {
         commands.Clear();
         commands.Enqueue(command);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (this.gameObject.tag == "Bug" && collision.gameObject.tag == "Bug")
+        {
+            Debug.Log("OnCollision bug");
+            this.GetComponent<Enemy>().DesiredSpeed = 10f;
+            this.GetComponent<Enemy>().Speed = 10f;
+            this.GetComponent<Enemy>().isStuck = true;
+            this.GetComponent<EnemyPhysics>().MoveBack();
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (this.gameObject.tag == "Bug" && collision.gameObject.tag == "Bug")
+        {
+            this.GetComponent<Enemy>().isStuck = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (this.gameObject.tag == "Bug")
+        {
+            
+        }
     }
 }
 

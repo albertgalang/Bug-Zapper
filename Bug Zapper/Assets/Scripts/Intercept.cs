@@ -32,19 +32,27 @@ public class Intercept : Command
         //ControlMgr.inst.SetHeading(this.entity, heading * Mathf.Rad2Deg);
 
         if (this.IsDone())
-            this.entity.DesiredSpeed = 0;
+            LockOn();
+        // this.entity.DesiredSpeed = 0;
+        // else if (this.entity.GetComponent<BoxCollider>().isTrigger == false)
         else
             ControlMgr.inst.IncreaseSpeed(this.entity);
 
     }
 
     public Vector3 diff = Vector3.positiveInfinity;
+    // public float doneDistanceSqr = 1500;
     public float doneDistanceSqr = 1500;
     public override bool IsDone()
     {
         // diff = this.entity.Position - InterceptPosition;
         diff = EntityMgr.inst.Player.gameObject.transform.position - this.entity.gameObject.transform.position;
         return (diff.sqrMagnitude < doneDistanceSqr);
+    }
+
+    public void LockOn()
+    {
+        this.entity.onTarget = true;
     }
 
     public override void Stop()
