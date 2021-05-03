@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlMgr : MonoBehaviour
 {
@@ -29,12 +30,20 @@ public class ControlMgr : MonoBehaviour
     void Start()
     {
         entity = EntityMgr.inst.Player;
-        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        // anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("DAMAGED00"))
+            return;
+        else
+            this.entity.isTakingDamage = false;
+
+
         if (Input.GetKey(KeyCode.W))
         {
             this.entity.gameObject.GetComponent<PlayerPhysics>().MoveForward();
@@ -73,6 +82,9 @@ public class ControlMgr : MonoBehaviour
         //    this.entity.gameObject.GetComponent<PlayerPhysics>().SetHeading(intersectionPoint);
         //}
 
+        //if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Damage"))
+        //    this.entity.isTakingDamage = false;
+
     }
 
     [SerializeField]
@@ -109,4 +121,12 @@ public class ControlMgr : MonoBehaviour
     //{
 
     //}
+
+    public void PlayerTakingDamage()
+    {
+        this.entity.isTakingDamage = true;
+        anim.Play("DAMAGED00");
+        var heathBar = GameObject.FindGameObjectWithTag("HealthBar");
+        heathBar.GetComponent<Slider>().value -= 25;
+    }
 }

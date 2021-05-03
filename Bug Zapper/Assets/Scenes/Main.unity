@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 316935607}
   m_Layer: 5
   m_Name: HealthBar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1417,6 +1417,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerEntity
       objectReference: {fileID: 0}
+    - target: {fileID: 5733565615234427200, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5733565615234427203, guid: 8edc0b14efdadc043bb29c12358dff6d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1487,6 +1492,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5733565616590860631, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8483267792562369464, guid: 8edc0b14efdadc043bb29c12358dff6d,
         type: 3}
       propertyPath: m_Constraints
@@ -1500,7 +1510,32 @@ PrefabInstance:
     - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_Center.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483267792562369467, guid: 8edc0b14efdadc043bb29c12358dff6d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8edc0b14efdadc043bb29c12358dff6d, type: 3}

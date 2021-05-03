@@ -45,30 +45,31 @@ public class UnitAI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("OnCollision bug");
         if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "EnemyEntity")
         {
-            Debug.Log("OnCollision bug");
-            this.GetComponent<Enemy>().DesiredSpeed = 10f;
+            // this.GetComponent<Enemy>().DesiredSpeed = 10f;
             this.GetComponent<Enemy>().Speed = 10f;
-            // this.GetComponent<Enemy>().isStuck = true;
-            this.GetComponent<EnemyPhysics>().MoveBack();
+        }
+
+        if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "Player")
+        {
+            ControlMgr.inst.PlayerTakingDamage();
         }
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        //if (this.gameObject.tag == "Bug" && collision.gameObject.tag == "Bug")
-        //{
-        //    this.GetComponent<Enemy>().isStuck = true;
-        //}
+        if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "EnemyEntity")
+        {
+
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (this.gameObject.tag == "Bug")
+        if (this.gameObject.tag == "EnemyEntity")
         {
-            
+
         }
     }
 }

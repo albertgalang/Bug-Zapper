@@ -60,7 +60,8 @@ public class EnemyPhysics : MonoBehaviour
     public void MoveBack()
     {
         var oppDirection = -this.GetComponent<Enemy>().Velocity;
-        this.GetComponent<Enemy>().Velocity = oppDirection;
+        this.GetComponent<Enemy>().Velocity = oppDirection * 2;
+        entity.Position = entity.Position + entity.Velocity * entity.Speed * Time.deltaTime;
     }
 
     public void EnemyProximityDetection()
