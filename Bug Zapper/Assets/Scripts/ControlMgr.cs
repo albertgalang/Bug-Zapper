@@ -72,7 +72,11 @@ public class ControlMgr : MonoBehaviour
 
         this.entity.gameObject.GetComponent<PlayerPhysics>().MovementHeading();
 
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Thanks for playing");
+            Application.Quit();
+        }
         //RaycastHit hit;
         //if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
         //{
