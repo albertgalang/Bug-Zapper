@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UnitAI : MonoBehaviour
 {
     public Queue<Command> commands = new Queue<Command>();
+    [SerializeField]
+    public List<Command> CommandList = new List<Command>();
 
     // Start is called before the first frame update
     void Start()
@@ -15,18 +18,25 @@ public class UnitAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // CommandList = commands.ToList();
+        CommandList = commands.ToList();
         if (commands.Count > 0)
         {
             var command = commands.Peek();
+            command.Init();
             command.Tick();
             // Debug.Log($"is done: {command.IsDone()}");
             if (command.IsDone()) commands.Dequeue();
         }
 
-        if (this.gameObject.tag == "Bug")
+        if (this.gameObject.tag == "EnemyEntity")
         {
-
+            if (EntityMgr.inst.IsPositionOutOfBounds(this.GetComponent<Enemy>()))
+            {
+                this.GetComponent<Enemy>().OnMap = false;
+                commands.Clear();
+                AIMgr.inst.HandleTeleport(this.GetComponent<Enemy>());
+                AIMgr.inst.HandleIntercept(EntityMgr.inst.Player, this.GetComponent<Enemy>());
+            }
         }
     }
 

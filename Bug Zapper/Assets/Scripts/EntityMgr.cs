@@ -56,6 +56,7 @@ public class EntityMgr : MonoBehaviour
             var parent = GameObject.FindGameObjectWithTag("EnemyEntity");
             var newObj = Instantiate(enemyPrefab[0], posSpawn, Quaternion.identity, parent.transform);
             newObj.GetComponent<Enemy>().Position = posSpawn;
+            newObj.GetComponent<Enemy>().OnMap = true;
 
             // testing intercept command at spawn
             AIMgr.inst.HandleIntercept(player, newObj.GetComponent<Enemy>());
@@ -68,5 +69,14 @@ public class EntityMgr : MonoBehaviour
     public void DestroEnemy( /* which enemy */ )
     {
 
+    }
+
+    public bool IsPositionOutOfBounds(Enemy ent)
+    {
+        if (ent.transform.position.z > topBotBorders[0]) return true;
+        if (ent.transform.position.z < topBotBorders[1]) return true;
+        if (ent.transform.position.x < leftRightBorders[0]) return true;
+        if (ent.transform.position.x > leftRightBorders[1]) return true;
+        return false;
     }
 }

@@ -31,4 +31,11 @@ public class AIMgr : MonoBehaviour
         UnitAI uai = enemy.GetComponent<UnitAI>();
         uai.AddCommand(intercept);
     }
+
+    public void HandleTeleport(Enemy enemy)
+    {
+        Teleport teleport = new Teleport(enemy);
+        UnitAI uai = enemy.GetComponent<UnitAI>();
+        uai.AddCommand(teleport);
+    }
 }
