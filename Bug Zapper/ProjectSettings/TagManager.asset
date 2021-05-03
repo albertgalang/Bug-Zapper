@@ -6,6 +6,10 @@ TagManager:
   tags:
   - EnemyEntity
   - HealthBar
+  - Fire
+  - Projectile
+  - Fireball
+  - Explosions
   layers:
   - Default
   - TransparentFX

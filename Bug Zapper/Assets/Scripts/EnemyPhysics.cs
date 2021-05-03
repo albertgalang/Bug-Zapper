@@ -25,9 +25,9 @@ public class EnemyPhysics : MonoBehaviour
         if (!entity.isStuck && !entity.onTarget)
             SetHeading(entity.gameObject.transform.position);
         // else if (!entity.isStuck && entity.onTarget)
-            
-        else if (entity.isStuck)
-            EnemyProximityDetection();
+
+        else if (entity.isDead)
+            return;
 
         if (Utils.ApproximatelyEqual(entity.Speed, entity.DesiredSpeed))
         {

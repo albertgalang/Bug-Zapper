@@ -4712,9 +4712,10 @@ GameObject:
   - component: {fileID: 3569773618142161885}
   - component: {fileID: 3569773618142161886}
   - component: {fileID: 114882863494212776}
+  - component: {fileID: 114195384492221508}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4787,10 +4788,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3569773618142161887}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 2.3
   m_Center: {x: 0, y: 0, z: 0.0004813075}
 --- !u!54 &3569773618142161886
 Rigidbody:
@@ -4821,3 +4822,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionVFX: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+--- !u!114 &114195384492221508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569773618142161887}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7653c4c066a9ba64e814de31a3558ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

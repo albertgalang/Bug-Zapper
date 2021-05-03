@@ -67,13 +67,18 @@ public class UnitAI : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "EnemyEntity")
-        {
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "EnemyEntity")
+    //    {
 
-        }
-    }
+    //    }
+
+    //    if (this.gameObject.tag == "EnemyEntity" && collision.gameObject.tag == "Fireball")
+    //    {
+            
+    //    }
+    //}
 
     private void OnCollisionExit(Collision collision)
     {

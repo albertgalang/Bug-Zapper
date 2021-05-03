@@ -50,7 +50,8 @@ public class EntityMgr : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        while (enemies.Count < maxEnemiesOnMap)
+        // while (enemies.Count < maxEnemiesOnMap)
+        for (var i = 0; i < maxEnemiesOnMap; i++)
         {
             var posSpawn = new Vector3(leftRightBorders[Random.Range(0,2)], 0f, topBotBorders[Random.Range(0,2)]);
             var parent = GameObject.FindGameObjectWithTag("EnemyEntity");

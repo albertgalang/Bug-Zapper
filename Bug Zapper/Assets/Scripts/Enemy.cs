@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour, IEntity, IOrientedEntity
     public bool onTarget = false;
     [SerializeField]
     public bool isStuck = false;
+    [SerializeField]
+    public bool isDead = false;
 
     public Vector3 Position { get => position; set => position = value; }
     public Vector3 Velocity { get => velocity; set => velocity = value; }
