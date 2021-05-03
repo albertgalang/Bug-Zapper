@@ -26,9 +26,10 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
+                Debug.Log("Time has run out!  You've Teleported home!");
                 timeRemaining = 0;
                 timerIsRunning = false;
+                FindObjectOfType<GameMgr>().EndGame(true);
             }
         }
     }

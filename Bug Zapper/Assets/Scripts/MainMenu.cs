@@ -14,4 +14,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Thanks for playing!");
         Application.Quit();
     }
+
+    public void newGame ()
+    {
+        Debug.Log("New Game");
+        FindObjectOfType<GameMgr>().gameEnded = false;
+        SceneManager.LoadScene(0);
+    }
 }

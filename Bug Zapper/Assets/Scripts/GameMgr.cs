@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityStandardAssets.Effects;
+using UnityEngine.SceneManagement;
 
 public class GameMgr : MonoBehaviour
 {
 
     private GameObject destroyMe;
+    public bool gameEnded = false;
 
     void Start()
     {
@@ -53,5 +55,21 @@ public class GameMgr : MonoBehaviour
             yield return new WaitForSeconds(5);
         }
 
+    }
+
+    public void EndGame(bool winCon)
+    {
+        if (gameEnded == false && winCon == true)
+        {
+            gameEnded = true;
+            Debug.Log("GAME OVER, YOU'VE WON");
+            SceneManager.LoadScene(2);
+        }
+        else if (gameEnded == false && winCon == false)
+        {
+            gameEnded = true;
+            Debug.Log("GAME OVER, YOU DIED");
+            SceneManager.LoadScene(3);
+        }
     }
 }

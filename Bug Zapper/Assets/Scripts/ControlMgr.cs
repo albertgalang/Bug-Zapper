@@ -132,5 +132,11 @@ public class ControlMgr : MonoBehaviour
         anim.Play("DAMAGED00");
         var healthBar = GameObject.FindGameObjectWithTag("HealthBar");
         healthBar.GetComponent<Slider>().value -= 25;
+
+        if (healthBar.GetComponent<Slider>().value == 0)
+        {
+            Debug.Log("You died");
+            FindObjectOfType<GameMgr>().EndGame(false);
+        }
     }
 }
