@@ -126,7 +126,7 @@ public class ControlMgr : MonoBehaviour
     {
         this.entity.isTakingDamage = true;
         anim.Play("DAMAGED00");
-        var heathBar = GameObject.FindGameObjectWithTag("HealthBar");
-        heathBar.GetComponent<Slider>().value -= 25;
+        var healthBar = GameObject.FindGameObjectWithTag("HealthBar");
+        healthBar.GetComponent<Slider>().value -= 25;
     }
 }
