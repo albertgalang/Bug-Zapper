@@ -27,11 +27,7 @@ public class Enemy : MonoBehaviour, IEntity, IOrientedEntity
     [SerializeField]
     private bool onMap;
     [SerializeField]
-    private bool lockVelocity;
-    [SerializeField]
     public bool onTarget = false;
-    [SerializeField]
-    public bool isStuck = false;
     [SerializeField]
     public bool isDead = false;
 
@@ -46,7 +42,6 @@ public class Enemy : MonoBehaviour, IEntity, IOrientedEntity
     //public float DesiredHeading { get => desiredHeading; set => desiredHeading = value; }
     public float TurnRate { get => turnRate; set => turnRate = value; }
     public bool OnMap { get => onMap; set => onMap = value; }
-    public bool LockVelocity { get => lockVelocity; set => lockVelocity = value; }
 
     // Start is called before the first frame update
     void Start()

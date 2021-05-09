@@ -38,6 +38,13 @@ public class UnitAI : MonoBehaviour
                 AIMgr.inst.HandleIntercept(EntityMgr.inst.Player, this.GetComponent<Enemy>());
             }
         }
+
+        if (this.gameObject.tag == "EnemyEntity")
+        {
+            // RaycastHit hit;
+            // Physics.Raycast();
+            Debug.DrawRay(this.transform.position, this.transform.forward * 80.0f, Color.red);
+        }
     }
 
     // add to queue

@@ -52,10 +52,11 @@ public class EntityMgr : MonoBehaviour
     {
         // while (enemies.Count < maxEnemiesOnMap)
         for (var i = 0; i < maxEnemiesOnMap; i++)
+        //for (var i = 0; i < 1; i++)
         {
             var posSpawn = new Vector3(leftRightBorders[Random.Range(0,2)], 0f, topBotBorders[Random.Range(0,2)]);
             var parent = GameObject.FindGameObjectWithTag("EnemyEntity");
-            var newObj = Instantiate(enemyPrefab[0], posSpawn, Quaternion.identity, parent.transform);
+            var newObj = Instantiate(enemyPrefab[Random.Range(0,2)], posSpawn, Quaternion.identity, parent.transform);
             newObj.GetComponent<Enemy>().Position = posSpawn;
             newObj.GetComponent<Enemy>().OnMap = true;
 

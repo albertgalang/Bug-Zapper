@@ -19,15 +19,15 @@ public class EnemyPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (entity.isStuck)
-        //    MoveBack();
-        // if (!entity.onTarget && !entity.isStuck)
-        if (!entity.isStuck && !entity.onTarget)
+        if (!entity.onTarget && !entity.isDead)
+        {
             SetHeading(entity.gameObject.transform.position);
-        // else if (!entity.isStuck && entity.onTarget)
 
+        }
         else if (entity.isDead)
+        {
             return;
+        }
 
         if (Utils.ApproximatelyEqual(entity.Speed, entity.DesiredSpeed))
         {
@@ -45,6 +45,7 @@ public class EnemyPhysics : MonoBehaviour
 
         entity.Position = entity.Position + entity.Velocity * entity.Speed * Time.deltaTime;
         transform.localPosition = entity.Position;
+
     }
 
     public void SetHeading(Vector3 pos)
@@ -55,28 +56,5 @@ public class EnemyPhysics : MonoBehaviour
         enemyQuarternion.x = 0f;
         enemyQuarternion.z = 0f;
         this.entity.gameObject.gameObject.transform.rotation = enemyQuarternion;
-    }
-
-    public void MoveBack()
-    {
-        var oppDirection = -this.GetComponent<Enemy>().Velocity;
-        this.GetComponent<Enemy>().Velocity = oppDirection * 2;
-        entity.Position = entity.Position + entity.Velocity * entity.Speed * Time.deltaTime;
-    }
-
-    public void EnemyProximityDetection()
-    {
-        float proximity = 2000;
-        // float proximity = 300f;
-        var diff = Vector3.positiveInfinity;
-        foreach (var enemy in EntityMgr.inst.enemies)
-        {
-            if (enemy == this.entity) continue;
-
-            // var diff = enemy.Position - this.entity.Position;
-            // diff = this.entity.transform.position - enemy.transform.position;
-            diff = enemy.transform.position - this.entity.transform.position;
-            if (diff.sqrMagnitude < proximity) this.entity.isStuck = false;
-        }
     }
 }
