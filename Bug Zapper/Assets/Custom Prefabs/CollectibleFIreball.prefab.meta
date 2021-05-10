@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-Bug Zapper/Assets/Custom Prefabs/Ground 1.prefab.meta
+<<<<<<< HEAD:Bug Zapper/Assets/Custom Prefabs/Ground 1.prefab.meta
 guid: 6560902b90e5747469edaf6996140e28
+=======
 guid: 10eec83946ae3a545a0ac878dfe39e9e
+>>>>>>> beta:Bug Zapper/Assets/Custom Prefabs/CollectibleFIreball.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

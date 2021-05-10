@@ -39,12 +39,12 @@ public class UnitAI : MonoBehaviour
             }
         }
 
-        if (this.gameObject.tag == "EnemyEntity")
-        {
-            // RaycastHit hit;
-            // Physics.Raycast();
-            Debug.DrawRay(this.transform.position, this.transform.forward * 80.0f, Color.red);
-        }
+        //if (this.gameObject.tag == "EnemyEntity")
+        //{
+        //    // RaycastHit hit;
+        //    // Physics.Raycast();
+        //    Debug.DrawRay(this.transform.position, this.transform.forward * 80.0f, Color.red);
+        //}
     }
 
     // add to queue
