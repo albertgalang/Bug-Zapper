@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     public void gameStart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -18,7 +19,6 @@ public class MainMenu : MonoBehaviour
     public void newGame ()
     {
         Debug.Log("New Game");
-        FindObjectOfType<GameMgr>().gameEnded = false;
         SceneManager.LoadScene(0);
     }
 }
