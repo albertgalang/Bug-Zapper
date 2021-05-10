@@ -13,7 +13,7 @@ public class EntityMgr : MonoBehaviour
     private List<float> topBotBorders = new List<float>();
     private List<float> leftRightBorders = new List<float>();
 
-    private int maxEnemiesOnMap = 4;
+    private int maxEnemiesOnMap = 6;
     private float secondsBetweenSpawns = 2f;
 
     public Player Player { get => this.player; }

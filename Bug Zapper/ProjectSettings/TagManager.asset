@@ -11,6 +11,9 @@ TagManager:
   - Fireball
   - Explosions
   - numFireballs
+  - CollectibleEntity
+  - fireballspawner
+  - CollectibleFireball
   layers:
   - Default
   - TransparentFX

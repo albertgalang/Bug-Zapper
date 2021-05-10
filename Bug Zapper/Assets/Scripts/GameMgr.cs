@@ -14,6 +14,8 @@ public class GameMgr : MonoBehaviour
     void Start()
     {
         StartCoroutine(StaleGameObjectCleanUp());
+        StartCoroutine(ReviveDeadEnemies());
+        StartCoroutine(CollectibleSpawn());
     }
 
     void Update()
@@ -22,10 +24,50 @@ public class GameMgr : MonoBehaviour
         {
             if (enemy.isDead)
             {
-                EntityMgr.inst.enemies.Remove(enemy);
-                destroyMe = enemy.gameObject;
-                Destroy(destroyMe);
+                // EntityMgr.inst.enemies.Remove(enemy);
+                // destroyMe = enemy.gameObject;
+                // Destroy(destroyMe);
+                enemy.gameObject.SetActive(false);
             }
+        }
+    }
+
+    private IEnumerator CollectibleSpawn()
+    {
+        var collectible = GameObject.FindGameObjectWithTag("CollectibleFireball");
+        while (true)
+        {
+            if (!collectible.GetComponent<Collectible>().isAlive)
+            {
+                // collectible.transform.position = new Vector3(Random.Range(-130.0f, 104.0f), 0f, Random.Range(-67.0f, 131.0f));
+                collectible.GetComponent<Collectible>().position = new Vector3(Random.Range(-130.0f, 104.0f), 0f, Random.Range(-67.0f, 131.0f));
+                collectible.SetActive(true);
+            }
+            yield return new WaitForSeconds(10);
+        }
+    }
+
+    private IEnumerator ReviveDeadEnemies()
+    {
+        while (true)
+        {
+            foreach (var enemy in EntityMgr.inst.enemies)
+            {
+                if (enemy.isDead)
+                {
+                    enemy.isDead = false;
+                    enemy.OnMap = false;
+                    enemy.Position = new Vector3(2, 0, 433);
+                    enemy.transform.position = new Vector3(2, 0, 433);
+
+                    enemy.gameObject.SetActive(true);
+
+                    enemy.GetComponent<UnitAI>().commands.Clear();
+                    AIMgr.inst.HandleTeleport(enemy);
+                    AIMgr.inst.HandleIntercept(EntityMgr.inst.Player, enemy);
+                }
+            }
+            yield return new WaitForSeconds(3);
         }
     }
 
